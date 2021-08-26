@@ -1,18 +1,4 @@
 $(document).ready(function() {
-    $('.navbar-light .dmenu').hover(function() {
-        $(this).find('.sm-menu').first().stop(true, true).slideDown(150);
-    }, function() {
-        $(this).find('.sm-menu').first().stop(true, true).slideUp(105)
-    });
-});
-
-$(document).ready(function() {
-    $(".megamenu").on("click", function(e) {
-        e.stopPropagation();
-    });
-});
-
-$(document).ready(function() {
     $('.counter').each(function() {
         $(this).prop('Counter', 0).animate({
             Counter: $(this).text()
@@ -68,3 +54,40 @@ $(document).ready(function() {
         ]
     });
 });
+
+const phoneInputField = document.querySelector("#phone");
+const phoneInput = window.intlTelInput(phoneInputField, {
+    separateDialCode: true,
+    initialCountry: "auto",
+    geoIpLookup: function(callback) {
+        $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+            var countryCode = (resp && resp.country) ? resp.country : "in";
+            callback(countryCode);
+        });
+    },
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+});
+
+var header = document.getElementById('header');
+var mobile = document.getElementById('mobile-menu');
+var mobileNav = document.getElementById('mobileNav');
+var closeBtn = document.getElementById('close-btn');
+
+if (screen.width < 1000) {
+    header.style.display = 'none !important'
+    mobile.style.display = 'block !important'
+} else {
+    header.style.display = 'block !important'
+    mobile.style.display = 'none !important'
+}
+
+function closeIt() {
+    var ddItem = document.getElementById('dropit');
+    ddItem.style.display = 'none'
+}
+const bars = document.getElementById('bars');
+bars.addEventListener('click', () => {
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.toggle('fa-times')
+    mobileNav.classList.toggle('block')
+})
