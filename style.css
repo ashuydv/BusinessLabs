@@ -1376,7 +1376,7 @@ header {
         z-index: 10000;
     }
     .mobile-navs {
-        position: absolute;
+        position: fixed;
         z-index: 1000;
         background: white;
         width: 100%;
