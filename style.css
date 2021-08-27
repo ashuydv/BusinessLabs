@@ -1673,6 +1673,9 @@ header {
         max-width: max-content;
         min-height: 20rem;
     }
+    .col-img {
+        display: none;
+    }
     .news p {
         margin: 0rem;
     }
