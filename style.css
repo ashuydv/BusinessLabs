@@ -40,7 +40,7 @@ h2 {
 
 h4 {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.1rem;
     margin-bottom: 0rem;
 }
 
@@ -142,14 +142,17 @@ header {
 .dd-items {
     position: absolute;
     width: 100%;
+    height: 85vh;
     background: white;
     padding: 2rem 3rem;
     padding-bottom: 0rem;
     left: 0%;
     top: 100%;
     box-shadow: 0px 3px 55px rgba(0, 0, 0, .15);
-    display: none;
-    transition: all 2s ease;
+    transition: 2s;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out 0s, visibility 0s linear 0.5s, z-index 0s linear 0.01s;
 }
 
 .dd-items .col-lg-3 {
@@ -195,8 +198,19 @@ header {
     font-weight: bold;
 }
 
+.navbar-right ul li {
+    transition: 1s;
+}
+
+.navbar-right ul li .dd-items {
+    opacity: 0;
+    transition: .3s;
+}
+
 .navbar-right ul li:hover .dd-items {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .background .btn {
@@ -253,8 +267,8 @@ header {
 
 .main {
     position: absolute;
-    top: 52.5%;
-    left: 50%;
+    top: 35%;
+    left: 0%;
     transform: translate(-50%, -50%);
     text-align: center;
     padding: 1rem;
@@ -591,6 +605,10 @@ header {
     height: 100vh;
 }
 
+.tech .nav-tabs {
+    width: auto;
+}
+
 #tabs {
     color: #111;
 }
@@ -925,13 +943,13 @@ header {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    height: 165vh;
-    padding: 5rem 0;
+    height: 140vh;
+    padding: 3rem 0;
 }
 
 .news .heading {
     text-align: center;
-    margin: 5rem 0;
+    margin: 3rem 0;
 }
 
 .news .news-cards {
@@ -1095,7 +1113,8 @@ header {
 }
 
 .client {
-    padding: 2rem;
+    padding: 4rem;
+    padding-bottom: 2rem;
     text-align: center;
 }
 
@@ -1177,6 +1196,15 @@ header {
     padding: 3rem 4rem;
 }
 
+.contactus .heading h4 {
+    color: var(--green);
+    font-weight: bold;
+}
+
+.heading h4 {
+    font-weight: bold;
+}
+
 .contactus .heading h1 {
     margin-left: 0rem;
 }
@@ -1186,7 +1214,7 @@ header {
     background-size: cover;
     height: 110vh;
     color: #fff;
-    padding: 4rem;
+    padding: 1rem 2rem;
 }
 
 .form-group label,
@@ -1198,13 +1226,29 @@ header {
     width: 100%!important;
 }
 
-.contact0 .left .desc,
-.contact0 .left .medias {
+.contact0 .left {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.contact0 .left .desc {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 55%;
-    padding: 2rem 0;
+    padding: 1rem 0;
+    margin: 1rem;
+}
+
+.contact0 .left .medias {
+    width: 50%;
+}
+
+.contact0 .left .medias img {
+    width: 100%;
     margin: 1rem;
 }
 
@@ -1261,6 +1305,11 @@ header {
     padding: 2rem;
 }
 
+.footer h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
 .footer .bottom {
     display: flex;
     align-items: center;
@@ -1302,6 +1351,38 @@ header {
 
 header {
     display: block !important;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+.links {
+    position: fixed;
+    top: 50%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+}
+
+.links li {
+    list-style: none;
+    border: 2px solid white;
+    background-color: white;
+    padding: 1rem;
+    margin: 1rem 0;
+    width: 45px;
+    height: 45px;
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 0px 3px 20px rgba(0, 165, 66, .2);
+}
+
+.links li a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--green);
 }
 
 @media screen and (max-width: 1000px) {
@@ -1403,13 +1484,14 @@ header {
         padding: 0rem;
     }
     .mobile-serv .dd-items {
-        display: none;
+        visibility: hidden;
         z-index: 4000;
         position: absolute;
         padding: 2rem 0rem;
     }
     .mobile-serv:hover .dd-items {
         display: block;
+        visibility: visible;
     }
     .mobile-serv .dd-items .times {
         position: absolute;
@@ -1421,14 +1503,16 @@ header {
         z-index: 1200;
     }
     .mobile-tech .dd-items {
-        display: none;
+        visibility: hidden;
         z-index: 10000;
         top: 20%;
         padding: 0rem;
         transform: none;
+        opacity: 0;
     }
     .mobile-tech:hover .dd-items {
-        display: block;
+        visibility: visible;
+        opacity: 1;
     }
     .tech-drop .row {
         padding: 1rem;
@@ -1440,6 +1524,7 @@ header {
     }
     .tech-drop .dd-items {
         top: 0px;
+        visibility: hidden;
     }
     .tech-drop .tech-btn {
         position: absolute;
@@ -1453,10 +1538,9 @@ header {
     }
     .main {
         padding: 1rem 1.5rem;
-        top: 25%;
+        top: 35%;
         left: 0%;
         transform: translate(0px, 0px);
-        text-align: left;
     }
     .main h1 {
         font-size: 30px;
@@ -1544,11 +1628,25 @@ header {
         margin: 0rem;
     }
     .tech .nav-link {
-        padding: .75rem!important;
+        padding: .75rem;
     }
     .tech .tab-content {
         padding: 0rem;
         width: 100%;
+    }
+    .tech .col-xs-12 {
+        overflow: hidden;
+    }
+    .tech .col-xs-12 nav {
+        overflow-x: auto;
+    }
+    .tech .col-xs-12 .nav-tabs {
+        overflow-x: scroll;
+        width: 550px !important;
+        overflow-y: hidden !important;
+    }
+    .tech .nav-tabs {
+        width: 550px;
     }
     .techno p {
         text-align: center;
@@ -1580,6 +1678,7 @@ header {
         color: var(--green);
         text-transform: uppercase;
         margin-bottom: 0rem;
+        cursor: pointer;
     }
     .services-card .card-body {
         padding: 1rem;
@@ -1605,7 +1704,17 @@ header {
         display: none;
     }
     .services-2 {
-        display: none;
+        width: auto;
+        overflow: hidden;
+        height: auto;
+    }
+    .services-card {
+        overflow: hidden !important;
+    }
+    .services-2 .card {
+        width: 297px !important;
+        height: auto !important;
+        min-width: 100px !important;
     }
     .cards-projects {
         padding: 0rem;
@@ -1703,11 +1812,15 @@ header {
     .contactus .heading {
         padding: 1rem;
     }
+    .contactus .heading h4 {
+        color: var(--green);
+        font-weight: bold;
+    }
     .contact0 .left .desc,
     .contact0 .left .medias {
         flex-direction: column;
         width: 100%;
-        padding: 1rem .5rem;
+        padding: auto;
         margin: 0rem;
     }
     .contact0 .left .medias div {
@@ -1724,6 +1837,9 @@ header {
         width: 325px;
         padding: 1rem;
         position: initial;
+    }
+    .contact0 .left .medias img {
+        margin: auto;
     }
     .note {
         margin: 0rem;
@@ -1751,4 +1867,12 @@ header {
 
 a {
     text-decoration: none;
+}
+
+.small {
+    cursor: pointer;
+}
+
+.col-img {
+    height: 100%;
 }

@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    AOS.init();
+})
+$(document).ready(function() {
     $('.counter').each(function() {
         $(this).prop('Counter', 0).animate({
             Counter: $(this).text()
@@ -36,21 +39,26 @@ $(document).ready(function() {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1,
                     infinite: true,
                     dots: false,
+                    autoplaySpeed: 5000,
+                    centerMode: true,
+                    centerPadding: '40px',
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 300,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1,
                     infinite: true,
                     dots: false,
+                    autoplaySpeed: 5000,
+                    centerMode: true,
+                    mobileFirst: true,
+                    initialSlide: 0,
+                    touchMove: true,
                 }
-            }
-
+            },
         ]
     });
 });
