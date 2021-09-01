@@ -31,6 +31,7 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
 h2 {
@@ -87,7 +88,7 @@ header {
 
 .navbar {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
     padding: 0rem!important;
 }
@@ -147,7 +148,7 @@ header {
     padding: 2rem 3rem;
     padding-bottom: 0rem;
     left: 0%;
-    top: 100%;
+    top: 84%;
     box-shadow: 0px 3px 55px rgba(0, 0, 0, .15);
     transition: 2s;
     opacity: 0;
@@ -199,18 +200,22 @@ header {
 }
 
 .navbar-right ul li {
-    transition: 1s;
+    transition: .5s;
 }
 
 .navbar-right ul li .dd-items {
     opacity: 0;
-    transition: .3s;
+    transition: .5s;
 }
 
 .navbar-right ul li:hover .dd-items {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0);
+    transition: .5s;
+    -webkit-transition: visibility 200ms ease-in;
+    -moz-transition: visibility 200ms ease-in;
+    -o-transition: visibility 200ms ease-in;
+    transition: visibility 200ms ease-in;
 }
 
 .background .btn {
@@ -232,6 +237,10 @@ header {
     display: flex;
     align-items: baseline;
     flex-direction: column;
+}
+
+.tech-drop .background {
+    background: transparent;
 }
 
 .dropdown-item {
@@ -331,6 +340,10 @@ header {
     width: 50%;
     height: 50%;
     margin: auto;
+}
+
+.col-img {
+    padding: 0rem !important;
 }
 
 .about .left {
@@ -663,6 +676,12 @@ header {
     position: relative;
 }
 
+.services-2 .slick-slider {
+    margin-left: 60%;
+    width: 100%;
+    margin-right: 5%;
+}
+
 .services-2 .heading {
     padding: 4rem 6rem;
     margin: 2rem;
@@ -709,14 +728,14 @@ header {
 
 .card {
     display: flex;
-    width: 346px!important;
-    height: 500px!important;
+    width: 330px!important;
+    height: 525px!important;
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
     background-color: #003030;
     background-clip: border-box;
-    border-radius: 11px;
+    border-radius: 21px !important;
     padding: 1rem;
     box-shadow: 0px 3px 15px #00000029;
 }
@@ -737,7 +756,11 @@ header {
 
 .slick-list {
     height: 570px;
-    padding: 30px!important;
+    padding: 15px!important;
+}
+
+.slick-prev {
+    display: none;
 }
 
 .media iframe,
@@ -873,7 +896,6 @@ header {
 }
 
 .cards-projects {
-    border: 1px solid #00A542;
     padding: 4rem;
 }
 
@@ -911,6 +933,17 @@ header {
 }
 
 .middle .btnss {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btnss .btn {
+    position: relative;
+}
+
+.btnss .btn i {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -998,6 +1031,7 @@ header {
 
 .big-img {
     width: 100%;
+    height: 100%;
 }
 
 .big-card {
@@ -1139,7 +1173,7 @@ header {
 }
 
 .clients .row .col img {
-    width: 225px;
+    width: 190px;
     margin: 0;
 }
 
@@ -1183,13 +1217,14 @@ header {
     box-shadow: 0px 3px 25px #00000029;
     text-align: left;
     position: absolute;
-    top: 2%;
+    top: 4%;
     right: 5%;
 }
 
 .contactus form h1 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     padding-bottom: 1.5rem;
+    font-weight: bold;
 }
 
 .contactus .heading {
@@ -1212,7 +1247,7 @@ header {
 .contact0 {
     background: url(./images/contactus.png);
     background-size: cover;
-    height: 110vh;
+    height: 118vh;
     color: #fff;
     padding: 1rem 2rem;
 }
@@ -1332,11 +1367,59 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 20%;
 }
 
-.footer .media img {
-    width: 40px;
+.footer .media-1 {
+    border: 1px solid black;
+    width: 45px;
+    height: 45px;
+    margin: auto .5rem;
+    border: 2px solid black;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+
+.footer .media-1 i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.footer .facebook:hover {
+    background: #4267B2;
+    border: 2px solid transparent;
+    color: white;
+    box-shadow: 0px 3px 25px rgba(0, 0, 0, .2);
+}
+
+.footer .twitter:hover {
+    background: #1DA1F2;
+    color: white;
+    border: 2px solid transparent;
+    box-shadow: 0px 3px 25px rgba(0, 0, 0, .2);
+}
+
+.footer .youtube:hover {
+    background: #FF0000;
+    color: white;
+    border: 2px solid transparent;
+    box-shadow: 0px 3px 25px rgba(0, 0, 0, .2);
+}
+
+.footer .instagram:hover {
+    background: linear-gradient(45deg, #fbad50, #cd486b, #8a3ab9);
+    color: white;
+    border: 2px solid rgba(0, 0, 0, .1);
+    box-shadow: 0px 3px 25px rgba(0, 0, 0, .2);
+}
+
+.footer .telegram:hover {
+    background: #0088cc;
+    color: white;
+    border: 2px solid transparent;
+    box-shadow: 0px 3px 25px rgba(0, 0, 0, .2);
 }
 
 .polygon {
@@ -1850,6 +1933,12 @@ li:hover {
     .footer .col-md-3 {
         margin: .5rem 0;
     }
+    .services-2 .slick-slider {
+        margin: 0;
+    }
+    .services-2 .card {
+        width: 300px !important;
+    }
 }
 
 .footer ul {
@@ -1861,8 +1950,9 @@ li:hover {
 }
 
 .footer li a {
-    color: #444;
+    color: #000;
     font-size: 14px;
+    font-weight: 600;
 }
 
 a {
@@ -1873,6 +1963,9 @@ a {
     cursor: pointer;
 }
 
-.col-img {
-    height: 100%;
+.form-group .btn {
+    background: #00A542;
+    color: #fff;
+    cursor: pointer;
+    padding: 4px 20px !important;
 }
